@@ -11,7 +11,7 @@ namespace DbUp.Engine.Preprocessors
         /// <summary>
         /// Performs some proprocessing step on a script
         /// </summary>
-        public string Process(string contents)
+        public string Process(string scriptName, string contents)
         {
             return Regex.Replace(contents, @"\$schema\$\.", string.Empty, RegexOptions.IgnoreCase);
         }

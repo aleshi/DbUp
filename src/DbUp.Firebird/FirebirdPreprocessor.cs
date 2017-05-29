@@ -11,7 +11,7 @@ namespace DbUp.Firebird
         /// <summary>
         /// Performs some proprocessing step on a Firebird script.
         /// </summary>
-        public string Process(string contents)
+        public string Process(string scriptName, string contents)
         {
             return contents;
         }

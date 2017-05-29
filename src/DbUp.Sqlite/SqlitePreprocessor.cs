@@ -11,7 +11,7 @@ namespace DbUp.SQLite
         /// <summary>
         /// Performs some proprocessing step on a SQLite script
         /// </summary>
-        public string Process(string contents)
+        public string Process(string scriptName, string contents)
         {
             return Regex.Replace(contents, @"n?varchar\s?\(max\)", "text", RegexOptions.IgnoreCase);
         }

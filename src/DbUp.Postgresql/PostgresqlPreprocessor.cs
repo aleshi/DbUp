@@ -11,7 +11,7 @@ namespace DbUp.Postgresql
         /// <summary>
         /// Performs some proprocessing step on a PostgreSQL script.
         /// </summary>
-        public string Process(string contents)
+        public string Process(string scriptName, string contents)
         {
             return contents;
         }

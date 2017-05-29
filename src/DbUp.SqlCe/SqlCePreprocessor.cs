@@ -11,7 +11,7 @@ namespace DbUp.SqlCe
         /// <summary>
         /// Performs some proprocessing step on a script
         /// </summary>
-        public string Process(string contents)
+        public string Process(string scriptName, string contents)
         {
             return Regex.Replace(contents, @"nvarchar\s?\(max\)", "ntext", RegexOptions.IgnoreCase);
         }

@@ -8,6 +8,6 @@ namespace DbUp.Engine
         /// <summary>
         /// Performs some proprocessing step on a script
         /// </summary>
-        string Process(string contents);
+        string Process(string scriptName, string contents);
     }
 }

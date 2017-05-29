@@ -27,7 +27,7 @@ namespace DbUp.Engine.Preprocessors
         /// Substitutes variables 
         /// </summary>
         /// <param name="contents"></param>
-        public string Process(string contents)
+        public string Process(string scriptName, string contents)
         {
             using (var parser = new VariableSubstitutionSqlParser(contents))
             {

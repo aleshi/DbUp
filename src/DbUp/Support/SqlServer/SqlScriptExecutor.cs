@@ -92,11 +92,11 @@ namespace DbUp.Support.SqlServer
 
             var contents = script.Contents;
             if (string.IsNullOrEmpty(Schema))
-                contents = new StripSchemaPreprocessor().Process(contents);
+                contents = new StripSchemaPreprocessor().Process(script.Name, contents);
             if (variablesEnabled())
-                contents = new VariableSubstitutionPreprocessor(variables).Process(contents);
+                contents = new VariableSubstitutionPreprocessor(variables).Process(script.Name, contents);
             contents = (scriptPreprocessors??new IScriptPreprocessor[0])
-                .Aggregate(contents, (current, additionalScriptPreprocessor) => additionalScriptPreprocessor.Process(current));
+                .Aggregate(contents, (current, additionalScriptPreprocessor) => additionalScriptPreprocessor.Process(script.Name, current));
 
             var connectionManager = connectionManagerFactory();
             var scriptStatements = connectionManager.SplitScriptIntoCommands(contents);

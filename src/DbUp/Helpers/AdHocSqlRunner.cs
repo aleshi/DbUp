@@ -151,12 +151,12 @@ namespace DbUp.Helpers
         private string Preprocess(string query)
         {
             if (string.IsNullOrEmpty(Schema))
-                query = new StripSchemaPreprocessor().Process(query);
+                query = new StripSchemaPreprocessor().Process(null, query);
             if (!string.IsNullOrEmpty(Schema) && !variables.ContainsKey("schema"))
                 variables.Add("schema", SqlObjectParser.QuoteSqlObjectName(Schema));
             if (variablesEnabled())
-                query = new VariableSubstitutionPreprocessor(variables).Process(query);
-            query = additionalScriptPreprocessors.Aggregate(query, (current, additionalScriptPreprocessor) => additionalScriptPreprocessor.Process(current));
+                query = new VariableSubstitutionPreprocessor(variables).Process(null, query);
+            query = additionalScriptPreprocessors.Aggregate(query, (current, additionalScriptPreprocessor) => additionalScriptPreprocessor.Process(null, current));
             return query;
         }
     }

@@ -178,5 +178,10 @@ namespace DbUp.Engine
                 }
             }
         }
+
+        public void Log(string message)
+        {
+            configuration.Log.WriteInformation(message);   
+        }
     }
 }
